@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contests"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:background="#B193E6"
+        android:textStyle="bold"/>
+    <ProgressBar
+        android:id="@+id/pb_contests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnLeetCode"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/black"
+            android:background="@drawable/background_transparent"
+            android:text="LeetCode"
+            android:textColor="#605D5D" />
+
+        <Button
+            android:id="@+id/btnCodeforces"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_transparent"
+            android:text="Codeforces"
+            android:textColor="#605D5D" />
+
+        <Button
+            android:id="@+id/btnAtCoder"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_transparent"
+            android:text="AtCoder"
+            android:textColor="#605D5D" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ongoingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ongoing Contests"
+        android:textColor="#C88B32"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ongoingRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
+        android:nestedScrollingEnabled="true" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/upcomingLabel"
+        android:textSize="20dp"
+        android:textColor="#5466CD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upcoming Contests"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/upcomingRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:nestedScrollingEnabled="true" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/pastLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Past Contests"
+        android:textColor="#F44336"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pastRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:nestedScrollingEnabled="true" />
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_cf"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:elevation="4dp"
+            app:titleTextColor="#00BCD4">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/codeforces"
+                android:layout_gravity="center"
+                />
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edit_text_handle"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter user handle" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:layout_gravity="end"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:textColor="@android:color/white" />
+        </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <!-- Results Section inside ScrollView -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="16dp">
+
+            <LinearLayout
+                android:id="@+id/results_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:paddingBottom="8dp">
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Handle"
+
+                        android:textSize="20dp"
+                        android:textColor="@android:color/darker_gray" />
+                    <TextView
+                        android:id="@+id/user_handle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="24dp"
+                        android:layout_weight="2"
+                        android:textStyle="bold"
+                        android:text="Handle"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:paddingBottom="8dp">
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Rating"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/darker_gray" />
+                    <TextView
+                        android:id="@+id/user_rating"
+                        android:layout_width="0dp"
+                        android:textStyle="bold"
+                        android:textSize="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Rating"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:paddingBottom="8dp">
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Contribution"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/darker_gray" />
+                    <TextView
+                        android:id="@+id/user_contribution"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Contribution"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <!-- Rank Display -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:paddingBottom="8dp">
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Rank"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/darker_gray" />
+                    <TextView
+                        android:id="@+id/rank"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Rank"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <!-- Max Rating Display -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:paddingBottom="8dp">
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Max Rating"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/darker_gray" />
+                    <TextView
+                        android:id="@+id/max_rating"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Max Rating"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <!-- Max Rank Display -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:paddingBottom="8dp">
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Max Rank"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/darker_gray" />
+                    <TextView
+                        android:id="@+id/max_rank"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Max Rank"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <!-- Name Display -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:paddingBottom="8dp">
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="First Name"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/darker_gray" />
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="First Name"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <!-- Last Name Display -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:paddingBottom="8dp">
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Last Name"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/darker_gray" />
+                    <TextView
+                        android:id="@+id/Last_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Last Name"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <!-- Country Display -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:paddingBottom="8dp">
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Country"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/darker_gray" />
+                    <TextView
+                        android:id="@+id/country"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Country"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>
