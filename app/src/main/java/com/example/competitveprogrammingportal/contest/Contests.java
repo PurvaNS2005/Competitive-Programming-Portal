@@ -238,7 +238,7 @@ public class Contests extends AppCompatActivity {
     private void fetchleetCodeContests(){
         resetRecyclerViewVisibility();
         leetcodeViewModel.getContestsLiveData().removeObservers(this);
-        leetcodeViewModel.fetchUserContests(auth.getCurrentUser().getDisplayName());
+        leetcodeViewModel.fetchUserContests();
         leetcodeViewModel.getContestsLiveData().observe(this, new Observer<List<ContestHistory>>() {
             @Override
             public void onChanged(List<ContestHistory> contestHistories) {

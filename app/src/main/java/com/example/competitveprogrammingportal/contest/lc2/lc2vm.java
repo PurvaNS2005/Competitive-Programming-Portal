@@ -19,8 +19,8 @@ public class lc2vm extends AndroidViewModel {
         repository = new lcRepository(application);
         contestsLiveData = new MutableLiveData<>();
     }
-    public void fetchUserContests(String handle){
-        repository.getMutableLiveData(handle).observeForever(data -> {
+    public void fetchUserContests(){
+        repository.getMutableLiveData().observeForever(data -> {
             if (data != null) {
                 contestsLiveData.setValue(data);
             } else {

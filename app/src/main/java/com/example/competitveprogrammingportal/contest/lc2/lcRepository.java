@@ -21,9 +21,9 @@ public class lcRepository {
         this.application = application;
     }
 
-    public MutableLiveData<List<ContestHistory>> getMutableLiveData(String handle) {
+    public MutableLiveData<List<ContestHistory>> getMutableLiveData() {
         lc2api api = RetrofitInstance.getService();
-        Call<lc2modelclass> call = api.getContests(handle);
+        Call<lc2modelclass> call = api.getContests();
         call.enqueue(new Callback<lc2modelclass>() {
             @Override
             public void onResponse(Call<lc2modelclass> call, Response<lc2modelclass> response) {

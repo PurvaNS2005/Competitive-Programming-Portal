@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface lc2api {
-    @GET("{username}/contest/history")
-    Call<lc2modelclass> getContests(@Path("username") String handle);
+    @GET("PurvaNS/contest/history")
+    Call<lc2modelclass> getContests();
 }
