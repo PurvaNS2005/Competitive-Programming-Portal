@@ -33,6 +33,7 @@ public class LogIn extends AppCompatActivity {
 
     TextView SignUp, email, password;
     Button signIn;
+    ProgressBar progressBar_login;
     private FirebaseAuth mAuth;
     private boolean isPasswordVisible = false;
     @Override
@@ -49,6 +50,7 @@ public class LogIn extends AppCompatActivity {
         signIn = findViewById(R.id.sign_in_button);
         email = findViewById(R.id.login_email);
         password = findViewById(R.id.login_pw);
+        progressBar_login = findViewById(R.id.progressbar_login);
         ImageView eyeIcon = findViewById(R.id.eye_show);
         eyeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,20 +76,17 @@ public class LogIn extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        signIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LogIn.this, HomePage.class));
-            }
-        });
+
         mAuth = FirebaseAuth.getInstance();
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar_login.setVisibility(View.VISIBLE);
                 if(!TextUtils.isEmpty(email.getText().toString()) && !TextUtils.isEmpty(password.getText().toString())){
                     checkLogIn(email.getText().toString(), password.getText().toString());
                 }else{
                     Toast.makeText(LogIn.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                    progressBar_login.setVisibility(View.GONE);
                 }
             }
         });
@@ -97,6 +96,7 @@ public class LogIn extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressBar_login.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();

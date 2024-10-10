@@ -1,20 +1,28 @@
 package com.example.competitveprogrammingportal.contest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.competitveprogrammingportal.R;
+import com.example.competitveprogrammingportal.cal.Calendarfile;
 import com.example.competitveprogrammingportal.contest.ac2.acmodelclass;
 import com.example.competitveprogrammingportal.contest.ac2.acAdapter;
 import com.example.competitveprogrammingportal.contest.ac2.acvm;
@@ -92,8 +100,33 @@ public class Contests extends AppCompatActivity {
                 fetchleetCodeContests();
             }
         });
-
+        Toolbar toolbar = findViewById(R.id.toolbar_contests);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+        }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.calendar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            onBackPressed();
+            return true;
+        }else if(item.getItemId()==R.id.calendar_menu){
+            startActivity(new Intent(Contests.this, Calendarfile.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void atcfetchContests() {
         resetRecyclerViewVisibility();
         viewModel.getContestsLiveData().removeObservers(this);

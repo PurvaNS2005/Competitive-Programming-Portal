@@ -3,17 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
-    android:padding="16dp">
+    android:background="@color/white">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_contests"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contests"
-        android:textSize="30dp"
-        android:textColor="@color/black"
-        android:background="#B193E6"
-        android:textStyle="bold"/>
+        android:background="#B193E6">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contests"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"/>
+    </androidx.appcompat.widget.Toolbar>
     <ProgressBar
         android:id="@+id/pb_contests"
         android:layout_width="wrap_content"
@@ -23,7 +28,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp">
 
         <Button
             android:id="@+id/btnLeetCode"
@@ -59,6 +65,7 @@
         android:textColor="#C88B32"
         android:textStyle="bold"
         android:textSize="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="16dp" />
     <ScrollView
         android:layout_width="match_parent"
@@ -67,8 +74,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ongoingRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="8dp"
+        android:layout_margin="8dp"
         android:nestedScrollingEnabled="true" />
     </ScrollView>
 
@@ -79,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Upcoming Contests"
+        android:layout_marginLeft="20dp"
         android:textStyle="bold"
         android:layout_marginTop="16dp" />
     <ScrollView
@@ -91,6 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="8dp"
+        android:layout_margin="8dp"
         android:nestedScrollingEnabled="true" />
     </ScrollView>
 
@@ -102,6 +112,7 @@
         android:textColor="#F44336"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="16dp" />
     <ScrollView
         android:layout_width="match_parent"
@@ -111,6 +122,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="8dp"
+        android:layout_margin="8dp"
         android:nestedScrollingEnabled="true" />
     </ScrollView>
 

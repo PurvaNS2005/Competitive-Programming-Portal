@@ -2,12 +2,18 @@ package com.example.competitveprogrammingportal;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -20,6 +26,7 @@ import com.example.competitveprogrammingportal.codeforces.Codeforces;
 import com.example.competitveprogrammingportal.contest.Contests;
 import com.example.competitveprogrammingportal.leetcode.Leetcode;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -32,6 +39,7 @@ public class HomePage extends AppCompatActivity {
     ImageButton calendar;
     FirebaseFirestore db;
     SwipeRefreshLayout swipeRefreshLayout;
+    FirebaseAuth auth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +55,7 @@ public class HomePage extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.refreshLayout);
         cardView2 = findViewById(R.id.cardView2);
         cardView3 = findViewById(R.id.cardView3);
+        auth = FirebaseAuth.getInstance();
         contests = findViewById(R.id.contests);
         calendar = findViewById(R.id.calendar);
         String name = getIntent().getStringExtra("username");;
@@ -102,7 +111,27 @@ public class HomePage extends AppCompatActivity {
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.logout, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.logout){
+            auth.signOut();
+            finish();
+            startActivity(new Intent(HomePage.this, LogIn.class));
+            return true;
+        }
+        return onOptionsItemSelected(item);
+    }
+
     private void fetchLeetcodeHandleFromFirestore(String email){
         db.collection("users").document(email).collection("Leetcode").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override

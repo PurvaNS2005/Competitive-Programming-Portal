@@ -1,6 +1,8 @@
 package com.example.competitveprogrammingportal.cal;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,6 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.competitveprogrammingportal.R;
+import com.example.competitveprogrammingportal.contest.Contests;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -46,15 +49,24 @@ public class Calendarfile extends AppCompatActivity {
             actionBar.setDisplayShowHomeEnabled(true);
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.contests_menu, menu);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==android.R.id.home){
             onBackPressed();
             return true;
+        }else if(item.getItemId()==R.id.contests_menu){
+            startActivity(new Intent(this, Contests.class));
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
     private void fetchContestsFromFirestore() {
         db.collection("users")
                 .document(auth.getCurrentUser().getEmail())

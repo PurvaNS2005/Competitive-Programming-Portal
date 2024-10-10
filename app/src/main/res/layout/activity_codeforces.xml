@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/img_13">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_marginLeft="15dp"
+
+        android:background="@color/white"
+        android:layout_marginRight="15dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_cf"
@@ -50,7 +56,6 @@
             android:layout_gravity="center"
             android:visibility="gone" />
 
-        <!-- Results Section inside ScrollView -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -135,7 +140,6 @@
                         android:textColor="@android:color/black" />
                 </LinearLayout>
 
-                <!-- Rank Display -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -159,7 +163,6 @@
                         android:textColor="@android:color/black" />
                 </LinearLayout>
 
-                <!-- Max Rating Display -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -183,7 +186,6 @@
                         android:textColor="@android:color/black" />
                 </LinearLayout>
 
-                <!-- Max Rank Display -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -207,7 +209,6 @@
                         android:textColor="@android:color/black" />
                 </LinearLayout>
 
-                <!-- Name Display -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -231,7 +232,6 @@
                         android:textColor="@android:color/black" />
                 </LinearLayout>
 
-                <!-- Last Name Display -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -255,7 +255,6 @@
                         android:textColor="@android:color/black" />
                 </LinearLayout>
 
-                <!-- Country Display -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -280,5 +279,6 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
+    </LinearLayout>
     </LinearLayout>
 </layout>

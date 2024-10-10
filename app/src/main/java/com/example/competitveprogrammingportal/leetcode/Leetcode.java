@@ -54,14 +54,14 @@ public class Leetcode extends AppCompatActivity {
         searchDefault();
         btnSearch.setOnClickListener(v -> {
             String handle = editTextHandle.getText().toString().trim();
-
+            progressBar.setVisibility(View.VISIBLE);
             if (!handle.isEmpty()) {
-                progressBar.setVisibility(View.VISIBLE);
                 lcviewmodel.fetchUserData(handle);
                 saveToDb(auth.getCurrentUser().getEmail().toString(), handle);
-
+                progressBar.setVisibility(View.GONE);
             } else {
                 Toast.makeText(Leetcode.this, "Please enter a valid handle", Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
             }
         });
         lcviewmodel.getUserLiveData().observe(this, userData -> {

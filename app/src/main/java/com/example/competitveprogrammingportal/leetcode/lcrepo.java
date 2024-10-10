@@ -28,7 +28,6 @@ public class lcrepo {
                     mutableLiveData.setValue(userInfo);
                 } else {
                     mutableLiveData.setValue(null);
-                    showErrorMessage("User not found or invalid handle.");
                 }
             }
 
