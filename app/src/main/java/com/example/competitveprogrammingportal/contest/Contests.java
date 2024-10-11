@@ -1,6 +1,8 @@
 package com.example.competitveprogrammingportal.contest;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -83,12 +85,18 @@ public class Contests extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
+                atc.setTextColor(Color.parseColor("#4B0082"));
+                cfc.setTextColor(Color.parseColor("#605D5D"));
+                lcc.setTextColor(Color.parseColor("#605D5D"));
                 atcfetchContests();
             }
         });
         cfc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                atc.setTextColor(Color.parseColor("#605D5D"));
+                cfc.setTextColor(Color.parseColor("#4B0082"));
+                lcc.setTextColor(Color.parseColor("#605D5D"));
                 progressBar.setVisibility(View.VISIBLE);
                 fetchCodeforcesContests();
             }
@@ -96,6 +104,9 @@ public class Contests extends AppCompatActivity {
         lcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                atc.setTextColor(Color.parseColor("#605D5D"));
+                cfc.setTextColor(Color.parseColor("#605D5D"));
+                lcc.setTextColor(Color.parseColor("#4B0082"));
                 progressBar.setVisibility(View.VISIBLE);
                 fetchleetCodeContests();
             }
