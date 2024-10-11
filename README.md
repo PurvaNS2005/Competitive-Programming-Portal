@@ -80,7 +80,7 @@ Additionally, the app features an in-app calendar that helps users plan their co
 | :-------- | :------- | :------------------------- |
 | `handles` | `string` | **Required**. Codeforces handle of the user to fetch. |
 
-#### Get codeforces contests
+#### Get codeforces contests.
 
 ```http
   GET  https://codeforces.com/api/contest.list?gym=false
@@ -90,7 +90,7 @@ Additionally, the app features an in-app calendar that helps users plan their co
 | :-------- | :------- | :-------------------------------- |
 | `gym`      | `boolean` | **Required**. false to exclude gym contests |
 
-#### Get Atcoder contests
+#### Get Atcoder contests.
 ```http
 GET https://kenkoooo.com/atcoder/resources/contests.json
 ```
@@ -98,7 +98,7 @@ GET https://kenkoooo.com/atcoder/resources/contests.json
 | :-------- | :------- | :-------------------------------- |
 | `None`      |  | This endpoint does not require any parameters. |
 
-#### Get Atcoder user details
+#### Get Atcoder user details.
 ```http
 GET https://kenkoooo.com/atcoder/atcoder-api/v3/user/ac_rank
 ```
@@ -108,7 +108,7 @@ GET https://kenkoooo.com/atcoder/atcoder-api/v3/user/ac_rank
 
 
 
-#### Get leetcode past contest details
+#### Get leetcode past contest details.
 ```http
 GET https://alfa-leetcode-api.onrender.com/{handle}/contest/history
 ```
@@ -116,11 +116,12 @@ GET https://alfa-leetcode-api.onrender.com/{handle}/contest/history
 | :-------- | :------- | :-------------------------------- |
 | `handle`      | `string` | The leetcode user handle. |
 
-#### Get Leetcode user details
+#### Get Leetcode user details.
 ```http
   GET https://alfa-leetcode-api.onrender.com/userProfile/{userName}
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `username` | `string` | The leetcode user handle. |
+
 
