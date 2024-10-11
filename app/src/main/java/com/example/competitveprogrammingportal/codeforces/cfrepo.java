@@ -31,19 +31,16 @@ public class cfrepo {
             @Override
             public void onResponse(Call<cfmodelclass> call, Response<cfmodelclass> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    // Handle successful response
                     cfmodelclass userInfo = response.body();
-                    mutableLiveData.setValue(userInfo); // Set the entire response
-                    // Update UI with user info
+                    mutableLiveData.setValue(userInfo);
                 } else {
-                    // Handle case where user is not found or any other error
-                    showErrorMessage("User not found or invalid handle.");
+                    mutableLiveData.setValue(null);
                 }
             }
 
             @Override
             public void onFailure(Call<cfmodelclass> call, Throwable throwable) {
-                // Handle failure, log error, etc.
+                mutableLiveData.setValue(null);
                 showErrorMessage("API call failed: "+throwable.getMessage());
             }
         });

@@ -24,6 +24,7 @@ public class acviewmodel extends AndroidViewModel {
                 userData.setValue(data);
             }else{
                 Toast.makeText(this.getApplication(), "Username not found", Toast.LENGTH_SHORT).show();
+                return;
             }
         });
     }

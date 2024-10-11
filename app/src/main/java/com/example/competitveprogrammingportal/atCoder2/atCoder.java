@@ -51,6 +51,7 @@ public class atCoder extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         acVM = new ViewModelProvider(this, new ViewModelProvider.AndroidViewModelFactory(getApplication()))
                 .get(acviewmodel.class);
+        searchDefault();
         btnSearch.setOnClickListener(v -> {
             String handle = editTextHandle.getText().toString();
             if (!handle.isEmpty()) {
@@ -114,7 +115,7 @@ public class atCoder extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("Firestore", "Leetcode handle added successfully!");
+                        Log.d("Firestore", "Atcoder handle added successfully!");
                     }
                 })
                 .addOnFailureListener(e -> {

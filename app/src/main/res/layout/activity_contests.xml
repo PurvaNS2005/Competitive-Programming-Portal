@@ -69,7 +69,7 @@
         android:layout_marginTop="16dp" />
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="100dp">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ongoingRecyclerView"

@@ -47,6 +47,7 @@ public class Codeforces extends AppCompatActivity {
         bar = findViewById(R.id.progress_bar);
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
+        searchDefault(auth.getCurrentUser().getEmail(), handle_cf.getText().toString());
         cfviewmodel = new ViewModelProvider(this, new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(com.example.competitveprogrammingportal.codeforces.cfviewmodel.class);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +87,6 @@ public class Codeforces extends AppCompatActivity {
             actionBar.setDisplayShowTitleEnabled(false);
         }
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==android.R.id.home){
@@ -95,12 +95,11 @@ public class Codeforces extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
     private void searchDefault(String email, String handle) {
-        db.collection("users").document(auth.getCurrentUser().getEmail()).collection("Codeforces").document("handleDocument").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        db.collection("users").document(email).collection("Codeforces").document("handleDocument").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
+                bar.setVisibility(View.GONE);
                 String handle = documentSnapshot.getString("handle");
                 if (handle != null && !handle.isEmpty()) {
                     handle_cf.setText(handle);
@@ -117,7 +116,7 @@ public class Codeforces extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("Firestore", "Leetcode handle added successfully!");
+                        Log.d("Firestore", "Codeforces handle added successfully!");
                     }
                 })
                 .addOnFailureListener(e -> {

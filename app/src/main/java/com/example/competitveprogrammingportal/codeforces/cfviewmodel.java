@@ -9,7 +9,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 public class cfviewmodel extends AndroidViewModel {
-    private MutableLiveData<cfmodelclass> userLiveData; // Holds the entire response
+    private MutableLiveData<cfmodelclass> userLiveData;
     private cfrepo repository;
 
     public cfviewmodel(@NonNull Application application) {
@@ -20,7 +20,7 @@ public class cfviewmodel extends AndroidViewModel {
 
     public void fetchUserData(String handle) {
         repository.getMutableLiveData(handle).observeForever(data -> {
-            if (data != null && data.getResult()!=null && !data.getResult().isEmpty()) {
+            if (data != null) {
                 userLiveData.setValue(data);
             }else{
                 Toast.makeText(this.getApplication(), "Username not found", Toast.LENGTH_SHORT).show();

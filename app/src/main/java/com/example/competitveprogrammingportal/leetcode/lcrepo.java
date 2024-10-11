@@ -28,9 +28,9 @@ public class lcrepo {
                     mutableLiveData.setValue(userInfo);
                 } else {
                     mutableLiveData.setValue(null);
+                    Toast.makeText(application, "User handle not found", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<lcmodelclass> call, Throwable throwable) {
                 mutableLiveData.setValue(null);

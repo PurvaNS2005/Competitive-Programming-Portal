@@ -27,16 +27,13 @@ public class acrepo {
                 if (response.isSuccessful() && response.body() != null) {
                     acmodel_rank userInfo = response.body();
                     mutableLiveData.setValue(userInfo);
-                    // Update UI with user info
                 } else {
-                    // Handle case where user is not found or any other error
+                    mutableLiveData.setValue(null);
                     showErrorMessage("User not found or invalid handle.");
                 }
             }
-
             @Override
             public void onFailure(Call<acmodel_rank> call, Throwable throwable) {
-                // Handle failure, log error, etc.
                 showErrorMessage("API call failed: "+throwable.getMessage());
             }
         });

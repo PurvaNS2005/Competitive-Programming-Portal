@@ -5,5 +5,4 @@
         app:showAsAction="never"
         android:title="Go to contests"
         android:id="@+id/contests_menu"/>
-
 </menu>
