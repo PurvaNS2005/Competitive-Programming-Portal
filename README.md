@@ -17,14 +17,14 @@ Additionally, the app features an in-app calendar that helps users plan their co
 
 
 ## Screenshots
-![image](https://github.com/user-attachments/assets/9b0b62ad-84f5-40e8-ba51-52bba622e416)
-![image](https://github.com/user-attachments/assets/f9d6c24a-aea3-4189-b87e-8fb03ea903fa)
-![Screenshot 2024-10-11 175448](https://github.com/user-attachments/assets/cfa1a05e-06ae-4118-9c2c-697398b6dd9c)
-![Screenshot 2024-10-11 180913](https://github.com/user-attachments/assets/2e11dcb1-0c14-468f-9421-0f17b407ccaa)
-![Screenshot 2024-10-11 180942](https://github.com/user-attachments/assets/d0a42a4a-833e-4448-98e8-db28ccc30255)
-![Screenshot 2024-10-11 181014](https://github.com/user-attachments/assets/d91a5e0b-f591-4d26-9787-de1103cba887)
-![image](https://github.com/user-attachments/assets/a13219b8-b658-4727-8b04-928eaacc84e8)
-![image](https://github.com/user-attachments/assets/e46c3670-3902-49f8-bf9d-013fc01e21e3)
+![Screenshot 2024-10-12 013019](https://github.com/user-attachments/assets/2d026dd5-d6b7-4476-b970-3c1bef3c03c9)
+![Screenshot 2024-10-12 013056](https://github.com/user-attachments/assets/32abe8f8-0ebd-4873-bb77-3bdb131ed6b2)
+![Screenshot 2024-10-12 013316](https://github.com/user-attachments/assets/3a28428d-08ff-45e9-b275-4ca642eb4009)
+![Screenshot 2024-10-12 013132](https://github.com/user-attachments/assets/4547a80c-b0d3-415c-96d0-524176e3d7fe)
+![Screenshot 2024-10-12 013157](https://github.com/user-attachments/assets/b47f7bee-4ba4-4ccb-b94d-524ffbaa2570)
+![Screenshot 2024-10-12 013221](https://github.com/user-attachments/assets/18d12ee3-d316-4e72-abdc-19a14199b4b6)
+![Screenshot 2024-10-12 013334](https://github.com/user-attachments/assets/f999973f-1e90-492f-a208-3089d4a2a5d8)
+![Screenshot 2024-10-12 014006](https://github.com/user-attachments/assets/a0bee2e3-d5bc-4868-bd48-bc005fe86006)
 
 
 
