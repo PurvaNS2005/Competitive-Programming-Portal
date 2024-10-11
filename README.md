@@ -17,11 +17,14 @@ Additionally, the app features an in-app calendar that helps users plan their co
 
 
 ## Screenshots
+![image](https://github.com/user-attachments/assets/9b0b62ad-84f5-40e8-ba51-52bba622e416)
+![image](https://github.com/user-attachments/assets/f9d6c24a-aea3-4189-b87e-8fb03ea903fa)
 ![Screenshot 2024-10-11 175448](https://github.com/user-attachments/assets/cfa1a05e-06ae-4118-9c2c-697398b6dd9c)
-
 ![Screenshot 2024-10-11 180913](https://github.com/user-attachments/assets/2e11dcb1-0c14-468f-9421-0f17b407ccaa)
 ![Screenshot 2024-10-11 180942](https://github.com/user-attachments/assets/d0a42a4a-833e-4448-98e8-db28ccc30255)
 ![Screenshot 2024-10-11 181014](https://github.com/user-attachments/assets/d91a5e0b-f591-4d26-9787-de1103cba887)
+![image](https://github.com/user-attachments/assets/e46c3670-3902-49f8-bf9d-013fc01e21e3)
+
 
 
 
