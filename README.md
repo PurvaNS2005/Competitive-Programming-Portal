@@ -12,7 +12,7 @@ Additionally, the app features an in-app calendar that helps users plan their co
 
 - User Account: Allows users to create an account for a more personalized experience, enabling them to easily check ratings and contests.
 - Profile Aggregation: View user data from Codeforces, LeetCode, and AtCoder. See your rankings, rating, problems solved, and other stats for each platform.
-- Contest Calendar: View past, ongoing, and upcoming contests from all three platforms.
+- Contests Page: View past, ongoing, and upcoming contests from all three platforms.
 - Personalized Calendar: Users can store relevant contests in their calendar and delete them once the contest day has passed.
 
 
@@ -36,7 +36,7 @@ Additionally, the app features an in-app calendar that helps users plan their co
 - Signup/Login:
     Register or log in using Firebase Authentication.
 - Profile Page:
-    View your/your friend's profile data from Codeforces, LeetCode, and AtCoder, including your ratings, problems solved, and ranks.
+    View your/your friend's profile data from Codeforces, LeetCode, and AtCoder, including ratings, problems solved, and ranks.
 - Contest Calendar:  
     Browse contests from various platforms.
     Add or delete contests to manage your participation using the in-app calendar.
