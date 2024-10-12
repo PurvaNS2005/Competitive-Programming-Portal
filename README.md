@@ -17,13 +17,15 @@ Additionally, the app features an in-app calendar that helps users plan their co
 
 
 ## Screenshots
-![image](https://github.com/user-attachments/assets/9b0b62ad-84f5-40e8-ba51-52bba622e416)
-![image](https://github.com/user-attachments/assets/f9d6c24a-aea3-4189-b87e-8fb03ea903fa)
-![Screenshot 2024-10-11 175448](https://github.com/user-attachments/assets/cfa1a05e-06ae-4118-9c2c-697398b6dd9c)
-![Screenshot 2024-10-11 180913](https://github.com/user-attachments/assets/2e11dcb1-0c14-468f-9421-0f17b407ccaa)
-![Screenshot 2024-10-11 180942](https://github.com/user-attachments/assets/d0a42a4a-833e-4448-98e8-db28ccc30255)
-![Screenshot 2024-10-11 181014](https://github.com/user-attachments/assets/d91a5e0b-f591-4d26-9787-de1103cba887)
-![image](https://github.com/user-attachments/assets/e46c3670-3902-49f8-bf9d-013fc01e21e3)
+![Screenshot 2024-10-12 013019](https://github.com/user-attachments/assets/2d026dd5-d6b7-4476-b970-3c1bef3c03c9)
+![Screenshot 2024-10-12 013056](https://github.com/user-attachments/assets/32abe8f8-0ebd-4873-bb77-3bdb131ed6b2)
+![Screenshot 2024-10-12 013316](https://github.com/user-attachments/assets/3a28428d-08ff-45e9-b275-4ca642eb4009)
+![Screenshot 2024-10-12 013132](https://github.com/user-attachments/assets/4547a80c-b0d3-415c-96d0-524176e3d7fe)
+![Screenshot 2024-10-12 013157](https://github.com/user-attachments/assets/b47f7bee-4ba4-4ccb-b94d-524ffbaa2570)
+![Screenshot 2024-10-12 013221](https://github.com/user-attachments/assets/18d12ee3-d316-4e72-abdc-19a14199b4b6)
+![Screenshot 2024-10-12 013334](https://github.com/user-attachments/assets/f999973f-1e90-492f-a208-3089d4a2a5d8)
+
+![Screenshot 2024-10-12 172454](https://github.com/user-attachments/assets/4f07f9e4-2aeb-4580-85d8-7dce318dd9a4)
 
 
 
@@ -79,7 +81,7 @@ Additionally, the app features an in-app calendar that helps users plan their co
 | :-------- | :------- | :------------------------- |
 | `handles` | `string` | **Required**. Codeforces handle of the user to fetch. |
 
-#### Get codeforces contests
+#### Get codeforces contests.
 
 ```http
   GET  https://codeforces.com/api/contest.list?gym=false
@@ -89,7 +91,7 @@ Additionally, the app features an in-app calendar that helps users plan their co
 | :-------- | :------- | :-------------------------------- |
 | `gym`      | `boolean` | **Required**. false to exclude gym contests |
 
-#### Get Atcoder contests
+#### Get Atcoder contests.
 ```http
 GET https://kenkoooo.com/atcoder/resources/contests.json
 ```
@@ -97,7 +99,7 @@ GET https://kenkoooo.com/atcoder/resources/contests.json
 | :-------- | :------- | :-------------------------------- |
 | `None`      |  | This endpoint does not require any parameters. |
 
-#### Get Atcoder user details
+#### Get Atcoder user details.
 ```http
 GET https://kenkoooo.com/atcoder/atcoder-api/v3/user/ac_rank
 ```
@@ -107,7 +109,7 @@ GET https://kenkoooo.com/atcoder/atcoder-api/v3/user/ac_rank
 
 
 
-#### Get leetcode past contest details
+#### Get leetcode past contest details.
 ```http
 GET https://alfa-leetcode-api.onrender.com/{handle}/contest/history
 ```
@@ -115,11 +117,12 @@ GET https://alfa-leetcode-api.onrender.com/{handle}/contest/history
 | :-------- | :------- | :-------------------------------- |
 | `handle`      | `string` | The leetcode user handle. |
 
-#### Get Leetcode user details
+#### Get Leetcode user details.
 ```http
   GET https://alfa-leetcode-api.onrender.com/userProfile/{userName}
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `username` | `string` | The leetcode user handle. |
+
 
