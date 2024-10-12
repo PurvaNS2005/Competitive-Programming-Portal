@@ -126,3 +126,14 @@ GET https://alfa-leetcode-api.onrender.com/{handle}/contest/history
 | `username` | `string` | The leetcode user handle. |
 
 
+## Demo
+
+
+https://github.com/user-attachments/assets/fa8d2390-42f2-4abd-9c69-a00894859004
+
+
+
+
+
+
+
