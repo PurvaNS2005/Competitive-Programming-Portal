@@ -74,7 +74,7 @@ public class cfAdapter extends RecyclerView.Adapter<cfAdapter.ContestViewHolder>
     public static class ContestViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView;
         TextView startTimeTextView;
-        TextView categoryTextView;
+        TextView categoryTextView, endTime;
         Button add;
 
         public ContestViewHolder(@NonNull View itemView) {

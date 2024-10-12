@@ -23,6 +23,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.competitveprogrammingportal.HomePage;
 import com.example.competitveprogrammingportal.R;
 import com.example.competitveprogrammingportal.cal.Calendarfile;
 import com.example.competitveprogrammingportal.contest.ac2.acmodelclass;
@@ -238,6 +239,8 @@ public class Contests extends AppCompatActivity {
                             contestData.put("name", contest.getTitle());
                             contestData.put("date", formatUnixTime(contest.getStartEpochSecond()));
                             contestData.put("duration", contest.getDurationSecond());
+                            contestData.put("endtime", formatUnixTime(contest.getStartEpochSecond()+contest.getDurationSecond()));
+
                             db.collection("users").document(email).collection("Contests").add(contestData)
                                     .addOnSuccessListener(documentReference -> {
                                         Toast.makeText(Contests.this, "Contest added!", Toast.LENGTH_SHORT).show();
@@ -264,6 +267,7 @@ public class Contests extends AppCompatActivity {
                             contestData.put("name", contest.getName().toString());
                             contestData.put("date", formatUnixTime(contest.getStartTimeSeconds()));
                             contestData.put("duration", formatUnixTime(contest.getDurationSeconds()));
+                            contestData.put("endtime", formatUnixTime(contest.getStartTimeSeconds()+contest.getDurationSeconds()));
                             db.collection("users").document(email).collection("Contests").add(contestData)
                                     .addOnSuccessListener(documentReference -> {
                                         Toast.makeText(Contests.this, "Contest added!", Toast.LENGTH_SHORT).show();

@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     pb.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-                        Toast.makeText(MainActivity.this, "Account created Succesfuuly!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Account created Successfully!", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "createUserWithEmail:success");
                         FirebaseUser user = mAuth.getCurrentUser();
                         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()

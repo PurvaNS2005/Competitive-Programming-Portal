@@ -53,11 +53,13 @@ public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.Calend
         }
         String title = contest.getString("name");
         String date = contest.getString("date");
+        String end = contest.getString("endtime");
         holder.titleTextView.setText(title != null ? title : "Unnamed Contest");
         holder.startTimeTextView.setText(date != null ? date : "No start time available");
         daysleft = "" + getDaysBetweenContestAndToday(holder.startTimeTextView.getText().toString());
         holder.days.setText(daysleft + " days left");
         holder.deleteBtn.setVisibility(View.VISIBLE);
+        holder.endTime.setText(end);
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +77,7 @@ public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.Calend
     public class CalendarViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView;
         TextView startTimeTextView;
-        TextView days;
+        TextView days, endTime;
         ImageButton deleteBtn;
         public CalendarViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -83,6 +85,7 @@ public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.Calend
             startTimeTextView = itemView.findViewById(R.id.calcontestTime);
             days = itemView.findViewById(R.id.daysleft);
             deleteBtn = itemView.findViewById(R.id.delButton);
+            endTime = itemView.findViewById(R.id.endTime);
         }
     }
     public static long getDaysBetweenContestAndToday(String contestDateString) {

@@ -5,4 +5,5 @@
         app:showAsAction="never"
         android:id="@+id/calendar_menu"
         android:title="Go to calendar" />
+
 </menu>

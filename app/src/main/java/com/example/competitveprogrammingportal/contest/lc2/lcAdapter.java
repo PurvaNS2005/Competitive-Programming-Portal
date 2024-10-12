@@ -35,13 +35,12 @@ public class lcAdapter extends RecyclerView.Adapter<lcAdapter.lcViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull lcViewHolder holder, int position) {
-        if(position<10){
             ContestHistory contest = contests.get(position);
             holder.titleTextView.setText(contest.getContest().getTitle());
             holder.startTimeTextView.setText("start time: "+formatUnixTime(contest.getContest().getStartTime()));
             holder.categoryTextView.setText("end time: "+formatUnixTime(contest.getFinishTimeInSeconds()));
             holder.add.setVisibility(View.GONE);
-        }
+
     }
 
     @Override
