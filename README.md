@@ -24,7 +24,8 @@ Additionally, the app features an in-app calendar that helps users plan their co
 ![Screenshot 2024-10-12 013157](https://github.com/user-attachments/assets/b47f7bee-4ba4-4ccb-b94d-524ffbaa2570)
 ![Screenshot 2024-10-12 013221](https://github.com/user-attachments/assets/18d12ee3-d316-4e72-abdc-19a14199b4b6)
 ![Screenshot 2024-10-12 013334](https://github.com/user-attachments/assets/f999973f-1e90-492f-a208-3089d4a2a5d8)
-![Screenshot 2024-10-12 014006](https://github.com/user-attachments/assets/a0bee2e3-d5bc-4868-bd48-bc005fe86006)
+
+![Screenshot 2024-10-12 172454](https://github.com/user-attachments/assets/4f07f9e4-2aeb-4580-85d8-7dce318dd9a4)
 
 
 
