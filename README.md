@@ -37,6 +37,8 @@ Additionally, the app features an in-app calendar that helps users plan their co
     Register or log in using Firebase Authentication.
 - Profile Page:
     View your/your friend's profile data from Codeforces, LeetCode, and AtCoder, including ratings, problems solved, and ranks.
+- Contests:
+      View all the past, ongoing and upcoming contests from all three platforms. Can add all the upcoming contests in the in-app calendar.
 - Contest Calendar:  
     Browse contests from various platforms.
     Add or delete contests to manage your participation using the in-app calendar.
@@ -129,7 +131,7 @@ GET https://alfa-leetcode-api.onrender.com/{handle}/contest/history
 ## Demo
 
 
-https://github.com/user-attachments/assets/fa8d2390-42f2-4abd-9c69-a00894859004
+https://github.com/user-attachments/assets/25f9f6c4-d5ab-4b43-b6a9-d8763b31d50a
 
 
 ## Submission
