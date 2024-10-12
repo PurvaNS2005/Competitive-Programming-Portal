@@ -27,6 +27,7 @@ public class lcRepository {
         call.enqueue(new Callback<lc2modelclass>() {
             @Override
             public void onResponse(Call<lc2modelclass> call, Response<lc2modelclass> response) {
+                // Handle the response here
                 if (response.isSuccessful() && response.body() != null) {
                     List<ContestHistory> allContests = response.body().getContestHistory();
                     contestsLiveData.setValue(allContests);
@@ -35,6 +36,7 @@ public class lcRepository {
                 }
             }
 
+            // Handle the failure here
             @Override
             public void onFailure(Call<lc2modelclass> call, Throwable throwable) {
                 showErrorMessage("API call failed: " + throwable.getMessage());
@@ -43,6 +45,7 @@ public class lcRepository {
         return contestsLiveData;
     }
 
+    // Helper method to show error messages
     private void showErrorMessage(String msg) {
         Toast.makeText(application, msg, Toast.LENGTH_SHORT).show();
     }

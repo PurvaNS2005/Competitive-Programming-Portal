@@ -21,11 +21,13 @@ public class lcAdapter extends RecyclerView.Adapter<lcAdapter.lcViewHolder> {
     private List<ContestHistory> contests;
     private Context context;
 
+    // Constructor
     public lcAdapter(List<ContestHistory> contests, Context context) {
         this.contests = contests;
         this.context = context;
     }
 
+    // create view holder
     @NonNull
     @Override
     public lcViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,6 +35,7 @@ public class lcAdapter extends RecyclerView.Adapter<lcAdapter.lcViewHolder> {
         return new lcViewHolder(view);
     }
 
+    // bind view holder
     @Override
     public void onBindViewHolder(@NonNull lcViewHolder holder, int position) {
             ContestHistory contest = contests.get(position);
@@ -43,6 +46,7 @@ public class lcAdapter extends RecyclerView.Adapter<lcAdapter.lcViewHolder> {
 
     }
 
+    // get item count
     @Override
     public int getItemCount() {
         return contests.size();
@@ -57,12 +61,14 @@ public class lcAdapter extends RecyclerView.Adapter<lcAdapter.lcViewHolder> {
 
         public lcViewHolder(@NonNull View itemView) {
             super(itemView);
+            // Initialize views
             titleTextView = itemView.findViewById(R.id.contestName);
             startTimeTextView = itemView.findViewById(R.id.contestTime);
             categoryTextView = itemView.findViewById(R.id.contestStatus);
             add = itemView.findViewById(R.id.add_btn);
         }
     }
+    // format unix time
     private String formatUnixTime(long unixTime) {
         long milliseconds = unixTime * 1000;
         Date date = new Date(milliseconds);

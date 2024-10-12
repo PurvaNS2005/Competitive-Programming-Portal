@@ -18,6 +18,7 @@ public class acviewmodel extends AndroidViewModel {
         acRepository = new acrepo(application);
         userData = new MutableLiveData<>();
     }
+    // gets user data from repository
     public void fetchUserData(String handle) {
         acRepository.getMutableLiveData(handle).observeForever(data -> {
             if (data != null && data.getRank()!=null) {
@@ -28,6 +29,7 @@ public class acviewmodel extends AndroidViewModel {
             }
         });
     }
+    // returns the user data
     public LiveData<acmodel_rank> getUserLiveData() {
         return userData;
     }

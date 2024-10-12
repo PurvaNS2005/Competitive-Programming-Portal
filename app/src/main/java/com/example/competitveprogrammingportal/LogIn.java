@@ -46,12 +46,14 @@ public class LogIn extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        // Initialize views
         SignUp = findViewById(R.id.Sign_Up);
         signIn = findViewById(R.id.sign_in_button);
         email = findViewById(R.id.login_email);
         password = findViewById(R.id.login_pw);
         progressBar_login = findViewById(R.id.progressbar_login);
         ImageView eyeIcon = findViewById(R.id.eye_show);
+        // handle password visibility
         eyeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +93,7 @@ public class LogIn extends AppCompatActivity {
             }
         });
     }
+    // check if entered credentials are right
     public void checkLogIn(String email, String password){
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

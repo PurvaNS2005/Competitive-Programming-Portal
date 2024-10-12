@@ -20,9 +20,11 @@ public class Repository {
     public MutableLiveData<List<List<acmodelclass>>> getContests() {
         acapi acapi = RetrofitInstance.getService();
         Call<List<acmodelclass>> call = acapi.getContests();
+        // Execute the call asynchronously
         call.enqueue(new retrofit2.Callback<List<acmodelclass>>() {
             @Override
             public void onResponse(Call<List<acmodelclass>> call, retrofit2.Response<List<acmodelclass>> response) {
+                // Handle the response
                 if (response != null && response.body() != null) {
                     List<acmodelclass> allContests = response.body();
                     List<acmodelclass> pastContests = new ArrayList<>();
@@ -48,6 +50,7 @@ public class Repository {
                     contests.setValue(null);
                 }
             }
+            // Handle the failure
             @Override
             public void onFailure(Call<List<acmodelclass>> call, Throwable throwable) {
                 Toast.makeText(application, throwable.getMessage(), Toast.LENGTH_SHORT).show();

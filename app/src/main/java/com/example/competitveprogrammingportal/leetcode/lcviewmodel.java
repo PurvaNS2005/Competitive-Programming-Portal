@@ -17,7 +17,7 @@ public class lcviewmodel extends AndroidViewModel {
         repository = new lcrepo(application);
         userLiveData = new MutableLiveData<>();
     }
-
+    // fetches user data from the repository.
     public void fetchUserData(String handle) {
         repository.getMutableLiveData(handle).observeForever(data -> {
             if (data != null) {
@@ -27,6 +27,7 @@ public class lcviewmodel extends AndroidViewModel {
             }
         });
     }
+    //return the user live data
     public LiveData<lcmodelclass> getUserLiveData() {
         return userLiveData;
     }

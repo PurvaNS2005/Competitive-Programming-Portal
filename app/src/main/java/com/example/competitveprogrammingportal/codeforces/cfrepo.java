@@ -22,6 +22,7 @@ public class cfrepo {
     public cfrepo(Application application) {
         this.application = application;
     }
+    //calls the api to get the user handle details
     public MutableLiveData<cfmodelclass> getMutableLiveData(String handle) {
         cfapiservice api = RetrofitInstance.getService();
 
@@ -31,7 +32,7 @@ public class cfrepo {
             @Override
             public void onResponse(Call<cfmodelclass> call, Response<cfmodelclass> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    cfmodelclass userInfo = response.body();
+                    cfmodelclass userInfo = response.body(); // response is of type cfmodelclass.
                     mutableLiveData.setValue(userInfo);
                 } else {
                     mutableLiveData.setValue(null);

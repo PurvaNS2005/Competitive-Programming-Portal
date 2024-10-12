@@ -64,6 +64,7 @@ public class Contests extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contests);
+        //Initializing views
         auth = FirebaseAuth.getInstance();
         atc = findViewById(R.id.btnAtCoder);
         cfc = findViewById(R.id.btnCodeforces);
@@ -73,6 +74,8 @@ public class Contests extends AppCompatActivity {
         pastRecyclerView = findViewById(R.id.pastRecyclerView);
         upcomingRecyclerView = findViewById(R.id.upcomingRecyclerView);
 
+        // setting recycler view layout managers
+
         ongoingRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         pastRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         upcomingRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -81,6 +84,8 @@ public class Contests extends AppCompatActivity {
         codeforcesViewModel = new ViewModelProvider(this).get(cfvm.class);
         leetcodeViewModel = new ViewModelProvider(this).get(lc2vm.class);
         db = FirebaseFirestore.getInstance();
+
+        //highlighting the clicked buttons
 
         atc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -228,29 +233,26 @@ public class Contests extends AppCompatActivity {
             }
         });
     }
+    // Add necessary platforms's contest to Firestore
     public void addContestToFirestore(acmodelclass contest, String email) {
         db.collection("users").document(email).collection("Contests")
-                .whereEqualTo("name", contest.getTitle().toString())
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        if (task.getResult().isEmpty()) {
-                            Map<String, Object> contestData = new HashMap<>();
-                            contestData.put("name", contest.getTitle());
-                            contestData.put("date", formatUnixTime(contest.getStartEpochSecond()));
-                            contestData.put("duration", contest.getDurationSecond());
-                            contestData.put("endtime", formatUnixTime(contest.getStartEpochSecond()+contest.getDurationSecond()));
+                        Map<String, Object> contestData = new HashMap<>();
+                        contestData.put("name", contest.getTitle());
+                        contestData.put("date", formatUnixTime(contest.getStartEpochSecond()));
+                        contestData.put("duration", contest.getDurationSecond());
+                        contestData.put("endtime", formatUnixTime(contest.getStartEpochSecond()+contest.getDurationSecond()));
 
-                            db.collection("users").document(email).collection("Contests").add(contestData)
-                                    .addOnSuccessListener(documentReference -> {
-                                        Toast.makeText(Contests.this, "Contest added!", Toast.LENGTH_SHORT).show();
-                                    })
-                                    .addOnFailureListener(e -> {
-                                        Toast.makeText(Contests.this, "Failed to add contest", Toast.LENGTH_SHORT).show();
-                                    });
-                        } else {
-                            Toast.makeText(Contests.this, "Contest already added!", Toast.LENGTH_SHORT).show();
-                        }
+                        db.collection("users").document(email).collection("Contests").add(contestData)
+                                .addOnSuccessListener(documentReference -> {
+                                    Toast.makeText(Contests.this, "Contest added!", Toast.LENGTH_SHORT).show();
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(Contests.this, "Failed to add contest", Toast.LENGTH_SHORT).show();
+                                });
+
                     } else {
                         Toast.makeText(Contests.this, "Error checking contest", Toast.LENGTH_SHORT).show();
                     }
@@ -258,26 +260,22 @@ public class Contests extends AppCompatActivity {
     }
     public void addCodeforcesContestToFirestore(Result contest, String email) {
         db.collection("users").document(email).collection("Contests")
-                .whereEqualTo("name", contest.getName().toString())
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        if (task.getResult().isEmpty()) {
-                            Map<String, Object> contestData = new HashMap<>(); //changed
-                            contestData.put("name", contest.getName().toString());
-                            contestData.put("date", formatUnixTime(contest.getStartTimeSeconds()));
-                            contestData.put("duration", formatUnixTime(contest.getDurationSeconds()));
-                            contestData.put("endtime", formatUnixTime(contest.getStartTimeSeconds()+contest.getDurationSeconds()));
-                            db.collection("users").document(email).collection("Contests").add(contestData)
-                                    .addOnSuccessListener(documentReference -> {
-                                        Toast.makeText(Contests.this, "Contest added!", Toast.LENGTH_SHORT).show();
-                                    })
-                                    .addOnFailureListener(e -> {
-                                        Toast.makeText(Contests.this, "Failed to add contest", Toast.LENGTH_SHORT).show();
-                                    });
-                        } else {
-                            Toast.makeText(Contests.this, "Contest already added!", Toast.LENGTH_SHORT).show();
-                        }
+                        Map<String, Object> contestData = new HashMap<>(); //changed
+                        contestData.put("name", contest.getName().toString());
+                        contestData.put("date", formatUnixTime(contest.getStartTimeSeconds()));
+                        contestData.put("duration", formatUnixTime(contest.getDurationSeconds()));
+                        contestData.put("endtime", formatUnixTime(contest.getStartTimeSeconds()+contest.getDurationSeconds()));
+                        db.collection("users").document(email).collection("Contests").add(contestData)
+                                .addOnSuccessListener(documentReference -> {
+                                    Toast.makeText(Contests.this, "Contest added!", Toast.LENGTH_SHORT).show();
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(Contests.this, "Failed to add contest", Toast.LENGTH_SHORT).show();
+                                });
+
                     } else {
                         Toast.makeText(Contests.this, "Error checking contest", Toast.LENGTH_SHORT).show();
                     }
@@ -315,6 +313,8 @@ public class Contests extends AppCompatActivity {
         pastRecyclerView.setVisibility(View.GONE);
         upcomingRecyclerView.setVisibility(View.GONE);
     }
+
+    //helper method to format unix time
     private String formatUnixTime(long unixTime) {
         long milliseconds = unixTime * 1000;
         Date date = new Date(milliseconds);

@@ -17,7 +17,7 @@ public class cfviewmodel extends AndroidViewModel {
         repository = new cfrepo(application);
         userLiveData = new MutableLiveData<>();
     }
-
+    //uses repos to get the required user details
     public void fetchUserData(String handle) {
         repository.getMutableLiveData(handle).observeForever(data -> {
             if (data != null) {
@@ -27,6 +27,7 @@ public class cfviewmodel extends AndroidViewModel {
             }
         });
     }
+    //returns the live data
     public MutableLiveData<cfmodelclass> getUserLiveData() {
         return userLiveData;
     }

@@ -42,6 +42,7 @@ public class Codeforces extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_codeforces);
+        // Initialize views
         btn = findViewById(R.id.btn_search);
         handle_cf = findViewById(R.id.edit_text_handle);
         bar = findViewById(R.id.progress_bar);
@@ -63,6 +64,8 @@ public class Codeforces extends AppCompatActivity {
                 searchDefault(auth.getCurrentUser().getEmail(), handle_cf.getText().toString());
             }
         });
+
+        //fill the necessary fields with the response
         cfviewmodel.getUserLiveData().observe(this, new Observer<cfmodelclass>() {
             @Override
             public void onChanged(cfmodelclass userData) {

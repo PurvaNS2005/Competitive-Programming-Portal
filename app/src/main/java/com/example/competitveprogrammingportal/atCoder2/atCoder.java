@@ -42,6 +42,7 @@ public class atCoder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_at_coder2);
+        //Initalizing views
         acRank = findViewById(R.id.ac_rank);
         acCount = findViewById(R.id.ac_count);
         editTextHandle = findViewById(R.id.edit_text_ac_handle);
@@ -95,6 +96,7 @@ public class atCoder extends AppCompatActivity {
         acRank.setText(String.valueOf(userData.getRank()));
         acCount.setText(String.valueOf(userData.getCount()));
     }
+    //gets the user details if already stored in firestore.
     private void searchDefault() {
         db.collection("users").document(auth.getCurrentUser().getEmail()).collection("AtCoder").document("handleDocument").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -107,6 +109,7 @@ public class atCoder extends AppCompatActivity {
             }
         });
     }
+    //saves the entered user details in firestore database.
     private void saveToDb(String email, String handle){
         Map<String, Object> atCoderData = new HashMap<>();
         atCoderData.put("handle", handle);

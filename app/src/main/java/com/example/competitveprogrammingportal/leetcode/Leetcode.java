@@ -37,6 +37,7 @@ public class Leetcode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leetcode);
+        // Initialize views
         editTextHandle = findViewById(R.id.edit_text_handle);
         btnSearch = findViewById(R.id.btn_search);
         userName = findViewById(R.id.user_name);
@@ -89,6 +90,7 @@ public class Leetcode extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Helper method to display user data
     private void displayUserData(lcmodelclass userData) {
         userName.setText(editTextHandle.getText().toString());
         ranking.setText(String.valueOf(userData.getRanking()));
@@ -99,6 +101,7 @@ public class Leetcode extends AppCompatActivity {
         contribution.setText(String.valueOf(userData.getContributionPoint()));
         reputation.setText(String.valueOf(userData.getReputation()));
     }
+    // Helper method to save user data to Firestore
     private void saveToDb(String email, String handle){
         Map<String, Object> leetcodeData = new HashMap<>();
         leetcodeData.put("handle", handle);
@@ -114,6 +117,7 @@ public class Leetcode extends AppCompatActivity {
                     Log.e("Firestore", "Error adding document", e);
                 });
     }
+    // Helper method to search default handle
     private void searchDefault() {
         db.collection("users").document(auth.getCurrentUser().getEmail()).collection("Leetcode").document("handleDocument").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override

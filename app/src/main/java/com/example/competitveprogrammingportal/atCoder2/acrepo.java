@@ -16,6 +16,7 @@ public class acrepo {
     public acrepo(Application application) {
         this.application = application;
     }
+    //method to get user rank by calling the api
     public MutableLiveData<acmodel_rank> getMutableLiveData(String handle) {
         acapiservice api = RetrofitInstance.getService();
 
@@ -24,7 +25,7 @@ public class acrepo {
         call.enqueue(new Callback<acmodel_rank>() {
             @Override
             public void onResponse(Call<acmodel_rank> call, Response<acmodel_rank> response) {
-                if (response.isSuccessful() && response.body() != null) {
+                if (response.isSuccessful() && response.body() != null) {// response of the api call will be stored in response body with model class data type
                     acmodel_rank userInfo = response.body();
                     mutableLiveData.setValue(userInfo);
                 } else {

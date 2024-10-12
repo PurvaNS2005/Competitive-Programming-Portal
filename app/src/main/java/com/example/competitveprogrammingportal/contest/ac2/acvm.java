@@ -18,6 +18,7 @@ public class acvm extends AndroidViewModel {
         repository = new Repository(application);
         contestsLiveData = new MutableLiveData<>();
     }
+    // Fetch contests from the repository
     public void fetchContests() {
         repository.getContests().observeForever(data -> {
             if (data != null) {
@@ -27,6 +28,7 @@ public class acvm extends AndroidViewModel {
             }
         });
     }
+    // Get the LiveData for the list of contests
     public LiveData<List<List<acmodelclass>>> getContestsLiveData() {
         return contestsLiveData;
     }

@@ -27,11 +27,12 @@ public class cfAdapter extends RecyclerView.Adapter<cfAdapter.ContestViewHolder>
         this.context = context;
         this.contests = contests;
     }
-
+    // Setter method for the listener
     public void setOnAddButtonClickListener(cfAdapter.OnAddButtonClickListener listener) {
         this.onAddButtonClickListener = listener;
     }
 
+    // ViewHolder implementation
     @NonNull
     @Override
     public ContestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,6 +40,7 @@ public class cfAdapter extends RecyclerView.Adapter<cfAdapter.ContestViewHolder>
         return new ContestViewHolder(view);
     }
 
+    // Bind data to the ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ContestViewHolder holder, int position) {
         if (position < contests.size()) {
@@ -64,10 +66,12 @@ public class cfAdapter extends RecyclerView.Adapter<cfAdapter.ContestViewHolder>
             }
         }
     }
+    // Return the total number of items in the data set
     @Override
     public int getItemCount() {
         return contests.size();
     }
+    // Define the listener interface
     public interface OnAddButtonClickListener {
         void onAddButtonClick(Result contestName);
     }
@@ -76,7 +80,7 @@ public class cfAdapter extends RecyclerView.Adapter<cfAdapter.ContestViewHolder>
         TextView startTimeTextView;
         TextView categoryTextView, endTime;
         Button add;
-
+        // Initialize views in the ViewHolder
         public ContestViewHolder(@NonNull View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.contestName);
@@ -85,6 +89,7 @@ public class cfAdapter extends RecyclerView.Adapter<cfAdapter.ContestViewHolder>
             add = itemView.findViewById(R.id.add_btn);
         }
     }
+    // Convert Unix time to a formatted date
     private String formatUnixTime(long unixTime) {
         long milliseconds = unixTime * 1000;
         Date date = new Date(milliseconds);

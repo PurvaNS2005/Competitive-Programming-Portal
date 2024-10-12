@@ -19,6 +19,7 @@ public class lc2vm extends AndroidViewModel {
         repository = new lcRepository(application);
         contestsLiveData = new MutableLiveData<>();
     }
+    // Function to fetch user contests
     public void fetchUserContests(){
         repository.getMutableLiveData().observeForever(data -> {
             if (data != null) {
@@ -28,6 +29,7 @@ public class lc2vm extends AndroidViewModel {
             }
         });
     }
+    // Function to fetch contest history
     public MutableLiveData<List<ContestHistory>> getContestsLiveData() {
         return contestsLiveData;
     }

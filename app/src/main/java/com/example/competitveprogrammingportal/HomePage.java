@@ -50,6 +50,7 @@ public class HomePage extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        // Initilazing views
         tv = findViewById(R.id.name);
         cardView = findViewById(R.id.cardView);
         swipeRefreshLayout = findViewById(R.id.refreshLayout);
@@ -70,6 +71,7 @@ public class HomePage extends AppCompatActivity {
         fetchLeetcodeHandleFromFirestore(email.getText().toString());
         fetchCodeforcesHandleFromFirestore(email.getText().toString());
         fetchAtCoderFromFirestore(email.getText().toString());
+        // navigates to user calendar
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +79,7 @@ public class HomePage extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        // navigates to codeforces ratings page
         cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,12 +87,14 @@ public class HomePage extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        // navigates to leetcode ratings page
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomePage.this, Leetcode.class));
             }
         });
+        //navigates to atcoder ratings page
         cardView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,6 +107,8 @@ public class HomePage extends AppCompatActivity {
                 startActivity(new Intent(HomePage.this, Contests.class));
             }
         });
+
+        // refreah layout to see for changes
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -131,7 +138,7 @@ public class HomePage extends AppCompatActivity {
         }
         return onOptionsItemSelected(item);
     }
-
+    //gets leetcode user handle details from firestore
     private void fetchLeetcodeHandleFromFirestore(String email){
         db.collection("users").document(email).collection("Leetcode").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -142,6 +149,7 @@ public class HomePage extends AppCompatActivity {
             }
         });
     }
+    //gets codeforces user handle details from firestore
     private void fetchCodeforcesHandleFromFirestore(String email){
         db.collection("users").document(email).collection("Codeforces").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -152,6 +160,7 @@ public class HomePage extends AppCompatActivity {
             }
         });
     }
+    //gets atcoder user handle details from firestore
     private void fetchAtCoderFromFirestore(String email){
         db.collection("users").document(email).collection("AtCoder").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override

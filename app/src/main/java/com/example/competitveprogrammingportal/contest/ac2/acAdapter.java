@@ -26,12 +26,14 @@ public class acAdapter extends RecyclerView.Adapter<acAdapter.ViewHolderAC> {
     public void setOnAddButtonClickListener(OnAddButtonClickListener listener) {
         this.onAddButtonClickListener = listener;
     }
+    // Create new views (invoked by the layout manager)
     @NonNull
     @Override
     public ViewHolderAC onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_contest, parent, false);
         return new ViewHolderAC(view);
     }
+    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(@NonNull ViewHolderAC holder, int position) {
         acmodelclass contest = contests.get(position);
@@ -56,12 +58,13 @@ public class acAdapter extends RecyclerView.Adapter<acAdapter.ViewHolderAC> {
             });
         }
     }
-
+    // returns the size of the contests list.
     @Override
     public int getItemCount() {
         return contests.size();
     }
 
+    // Define a listener interface for the "Add" button click event
     public interface OnAddButtonClickListener {
         void onAddButtonClick(acmodelclass contestName);
     }
@@ -71,6 +74,7 @@ public class acAdapter extends RecyclerView.Adapter<acAdapter.ViewHolderAC> {
         TextView startTimeTextView;
         TextView categoryTextView;
         Button add;
+        // Initialize views in the ViewHolder
         public ViewHolderAC(View itemView) {
             super(itemView);
             contestName = itemView.findViewById(R.id.contestName);
@@ -79,6 +83,7 @@ public class acAdapter extends RecyclerView.Adapter<acAdapter.ViewHolderAC> {
             categoryTextView = itemView.findViewById(R.id.contestStatus);
         }
     }
+    //Helper method to convert unix time to readable format
     private String formatUnixTime(long unixTime) {
         long milliseconds = unixTime * 1000;
         Date date = new Date(milliseconds);

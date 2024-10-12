@@ -20,6 +20,7 @@ public class lcrepo {
     public MutableLiveData<lcmodelclass> getMutableLiveData(String handle) {
         lcapiservice api = RetrofitInstance.getService();
         Call<lcmodelclass> call = api.getLCUserInfo(handle);
+        // adding response from the call to the mutable live data
         call.enqueue(new Callback<lcmodelclass>() {
             @Override
             public void onResponse(Call<lcmodelclass> call, Response<lcmodelclass> response) {

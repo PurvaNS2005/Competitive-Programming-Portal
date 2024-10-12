@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        // Initializing views
         SignIn = findViewById(R.id.Sign_in);
         username = findViewById(R.id.editText);
         email = findViewById(R.id.email);
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         pb = findViewById(R.id.progress_bar);
         mAuth = FirebaseAuth.getInstance();
         ImageView eyeIcon = findViewById(R.id.eye_show);
+        // set password visibility
         eyeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        // handle signin and sign up buttons
+
+
         SignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    // create account in firebase authentication
     public void createAccount(String username, String email, String password){
         if(!username.isEmpty() && !email.isEmpty() && !password.isEmpty()){
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

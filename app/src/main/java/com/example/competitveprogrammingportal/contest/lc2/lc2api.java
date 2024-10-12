@@ -7,6 +7,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface lc2api {
+
+    //{username} replave with PurvaNS (valid leetcode handle username) to get past contests
     @GET("PurvaNS/contest/history")
     Call<lc2modelclass> getContests();
 }

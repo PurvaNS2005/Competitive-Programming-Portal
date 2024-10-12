@@ -22,12 +22,14 @@ public class cfvm extends AndroidViewModel {
     private cfRepository repository;
     private MutableLiveData<List<List<Result>>> contestsLiveData;
 
+    // Constructor
     public cfvm(Application application) {
         super(application);
         repository = new cfRepository(application);
         contestsLiveData = repository.getMutableLiveData();
     }
 
+    // Method to fetch contests
     public MutableLiveData<List<List<Result>>> getContestsLiveData() {
         return contestsLiveData;
     }

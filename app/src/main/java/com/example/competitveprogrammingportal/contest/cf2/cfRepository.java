@@ -19,12 +19,14 @@ public class cfRepository {
         this.application = application;
     }
 
+    // Method to fetch and segregate contests
     public MutableLiveData<List<List<Result>>> getMutableLiveData() {
         cfapi api = RetrofitInstance.getService();
         Call<cfmodelclass2> call = api.getContestList();
         call.enqueue(new Callback<cfmodelclass2>() {
             @Override
             public void onResponse(Call<cfmodelclass2> call, Response<cfmodelclass2> response) {
+                // Handle the response here
                 if (response.isSuccessful() && response.body() != null) {
                     cfmodelclass2 allContests = response.body();
                     segregateContests(allContests);
@@ -40,6 +42,7 @@ public class cfRepository {
         return contestsLiveData;
     }
 
+    // Method to segregate contests based on their start time
     public void segregateContests(cfmodelclass2 allContests) {
         List<Result> pastContests = new ArrayList<>();
         List<Result> ongoingContests = new ArrayList<>();
@@ -64,6 +67,7 @@ public class cfRepository {
         contestsLiveData.setValue(segregatedContests);
     }
 
+    // Method to show error messages
     private void showErrorMessage(String msg) {
         Toast.makeText(application, "hi"+msg, Toast.LENGTH_SHORT).show();
     }

@@ -30,7 +30,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-
+// Adapter class to inflate and display multiple contests in the recycler view
 public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.CalendarViewHolder> {
     private List<DocumentSnapshot> contestsList;
     private Context context;
@@ -45,6 +45,7 @@ public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.Calend
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cal_item, parent, false);
         return new CalendarViewHolder(view);
     }
+    //binds all the inflated views to the view holder
     @Override
     public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position) {
         DocumentSnapshot contest = contestsList.get(position);
@@ -88,6 +89,7 @@ public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.Calend
             endTime = itemView.findViewById(R.id.endTime);
         }
     }
+    // to find number of days between the current day and the given contest day
     public static long getDaysBetweenContestAndToday(String contestDateString) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         long contestTimeMillis = 0;
@@ -104,6 +106,7 @@ public class calendarAdapter extends RecyclerView.Adapter<calendarAdapter.Calend
         long diffInDays = TimeUnit.MILLISECONDS.toDays(diffInMillis);
         return -diffInDays;
     }
+    //deletes the contest from the database and from display
     public void deleteEnable(int position){
         if(contestsList.size()<=0){
             return;
